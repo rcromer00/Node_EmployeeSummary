@@ -1,6 +1,7 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+// const gitHubAPI = require("github");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -9,9 +10,72 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { parse } = require("path");
+const { error } = require("console");
 
+
+// GitHub API
+// const github = new GitHubApi({
+//     // required
+//     version: "3.0.0",
+//     // optional
+//     debug: true,
+//     protocol: "https",
+//     host: "github.my-GHE-enabled-company.com",
+//     pathPrefix: "/api/v3", // for some GHEs
+//     timeout: 5000
+// });
 
 // Write code to use inquirer to gather information about the development team members,
+ inquirer.prompt([
+    {
+       type: 'input',
+       message: 'What is your name?',
+       name: 'name'
+    },
+    {
+        type: 'input',
+        message: 'What is your email ',
+        name: 'email',
+    },
+    {
+        type: 'list',
+        message: 'What is your role?',
+        name: 'role',
+        choices: [
+            'Engineer',
+            'Manager',
+            'Intern'
+        ]
+    }, {
+            type: 'input',
+            message: 'Please enter your GitHub username.',
+            name: 'username',
+            when: (answers) => answers.role === 'Engineer'
+        },
+        {
+            type: 'input',
+            message: 'Please enter your Office Number.',
+            name: 'officeNumber',
+            when: (answers) => answers.role === 'Manager'
+        },
+        {
+            type: 'input',
+            message: 'Please enter the name of your School.',
+            name: 'school',
+            when: (answers) => answers.role === 'Intern'
+        }
+ ])
+ 
+//    function({
+//     github.user.getFollowingFromUser({
+//         user: " "
+//     }, function(err, res) {
+//         console.log(JSON.stringify(res));
+//       });
+//     });
+// }
+
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 // After the user has input all employees desired, call the `render` function (required
