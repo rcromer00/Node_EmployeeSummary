@@ -11,3 +11,9 @@
   ![README Screenshot](https://i.ibb.co/5YQXmBf/terminal-Screen-Shot.png)
   
   ## Video Link
+  https://drive.google.com/file/d/1s76ybyv1W15Jc8vPIZuS62ZtC9oH0omd/view?usp=sharing
+  
+  If you have any questions feel free to reach me at
+  GitHub: https://github.com/rcromer00
+  Email: cromer.ronnie@yahoo.com 
+  
